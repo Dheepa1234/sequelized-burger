@@ -1,0 +1,67 @@
+body {
+  background-color: #f9c47e;
+}
+
+header {
+  text-align: center;
+}
+
+header p {
+  margin: -20px 0 0 270px;
+  font-size: 12px;
+  color: #333;
+}
+
+header a {
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px dotted;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.devour-it {
+  width: 300px;
+  border: 1px solid;
+  padding: 20px;
+  margin: 10px 0;
+  background: #788ea6;
+}
+
+.devour-btn-form {
+  width: 100px;
+  margin-top: -71px;
+}
+
+.devour-it-btn {
+  padding: 8px 10px;
+  margin-left: 230px;
+}
+
+.devoured {
+  width: 300px;
+  border: 1px solid;
+  padding: 20px;
+  margin: 10px 0;
+  background: #bcb8aa;
+}
+
+.devoured-form {
+  margin-top: -71px;
+}
+
+.devoured-btn {
+  padding: 19px 20px;
+  /*margin-top: -103px;*/
+  margin-left: 247px;
+  border-radius: 2px;
+}
+
+.add-a-burger {
+  clear: both;
+  text-align: center;
+}
