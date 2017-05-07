@@ -16,6 +16,14 @@ var app = express();
 //==========================================================
 var PORT = process.env.PORT || 3000;
 
+// ========================================================
+// Require the models for syncing
+// ========================================================
+var db = require("./models");
+
+//==========================================================
+// Serve static files
+//==========================================================
 app.use(express.static(process.cwd() + '/public'));
 
 //==========================================================
@@ -45,8 +53,11 @@ require('./controllers/burgers_controller')(app);
 
 
 //==========================================================
+// Sync sequelize models
 // Start Express server
 //==========================================================
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+db.sequelize.sync({ force: true }).then(function() {  
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
