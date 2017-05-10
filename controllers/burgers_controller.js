@@ -1,5 +1,6 @@
 // Create the router for the app, and export the router at the end of your file
 var db = require('../models');
+var path = require('path');
 
 module.exports = function(app) {
 
@@ -27,7 +28,7 @@ module.exports = function(app) {
       },
       {
         where: {
-          id: req.body.id
+          id: req.params.id
         }
       }).then(function(dbBurger) {
         res.json(dbBurger);
