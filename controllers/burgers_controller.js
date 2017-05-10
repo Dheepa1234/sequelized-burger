@@ -23,7 +23,7 @@ module.exports = function(app) {
   app.put('/:id', function(req, res) {
     db.Burger.update({
       burger_name: req.body.burger_name,
-      values: req.body.devoured
+      values: req.body.devoured,
       },
       {
         where: {
