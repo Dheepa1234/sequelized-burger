@@ -4,8 +4,8 @@
 //===============================================
 module.exports = function(sequelize, DataTypes) {
   var Burger = sequelize.define('Burger', {
-    timestamps: true, // Add timestamp updatedAt and createdAt attributes.
-    underscored: true, // Use underscore style for automatically added attributes.
+    //timestamps: true, // Add timestamp updatedAt and createdAt attributes.
+    //underscored: true, // Use underscore style for automatically added attributes.
     burger_name: {
       type: DataTypes.STRING,
       description: DataTypes.TEXT,
@@ -23,7 +23,19 @@ module.exports = function(sequelize, DataTypes) {
       description: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
-    }
+    },
+    created_at: {
+      type: 'TIMESTAMP',
+      defaultValue: DataTypes.NOW(),
+      allowNull: false
+    },
+    updated_at: {
+      type: 'TIMESTAMP',
+      defaultValue: DataTypes.NOW(),
+      allowNull: false
+    }    
+  }, {
+    timestamps: false
   });
   return Burger;
 };

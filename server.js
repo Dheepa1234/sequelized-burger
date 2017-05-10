@@ -19,7 +19,7 @@ var PORT = process.env.PORT || 3000;
 // ========================================================
 // Require the models for syncing
 // ========================================================
-var db = require("./models");
+var db = require('./models');
 
 //==========================================================
 // Serve static files
@@ -35,15 +35,15 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 //==========================================================
 // Configure method-override middleware.
 //==========================================================
-app.use(methodOverride("_method"));
+app.use(methodOverride('_method'));
 
 //==========================================================
 // Configure express-handlebars.
 //==========================================================
 
-var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({defaultLayout: "main"}));
-app.set("view engine", "handlebars");
+var exphbs = require('express-handlebars');
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
 
 //==========================================================
@@ -56,8 +56,8 @@ require('./controllers/burgers_controller')(app);
 // Sync sequelize models
 // Start Express server
 //==========================================================
-db.sequelize.sync({ force: true }).then(function() {  
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+    console.log('App listening on PORT ' + PORT);
   });
 });
