@@ -1,14 +1,18 @@
-//===============================================
+//====================================================
 // Create a Burger database model
 // Build columns `burger_name`, `devoured`, and `date`
-//===============================================
+//====================================================
+
+// Sequelize (capital) references the standard library.
+var Sequelize = require("sequelize");
+// sequelize (lowercase) references the connection to the DB.
+var sequelize = require("../config/connection");
+
 module.exports = function(sequelize, DataTypes) {
+
   var Burger = sequelize.define('Burger', {
-    //timestamps: true, // Add timestamp updatedAt and createdAt attributes.
-    //underscored: true, // Use underscore style for automatically added attributes.
     burger_name: {
-      type: DataTypes.STRING,
-      description: DataTypes.TEXT,
+      type: Sequelize.STRING,
       allowNull: false, // This DB column may not be equal to null.
       validate: {
         len: [1], // The string must have a length value of 1 or more.
@@ -19,8 +23,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     devoured: {
-      type: DataTypes.BOOLEAN,
-      description: DataTypes.BOOLEAN,
+      type: Sequelize.BOOLEAN,
       allowNull: false,
       defaultValue: false
     },
@@ -33,9 +36,10 @@ module.exports = function(sequelize, DataTypes) {
       type: 'TIMESTAMP',
       defaultValue: DataTypes.NOW(),
       allowNull: false
-    }    
+    }
   }, {
     timestamps: false
   });
   return Burger;
+
 };
