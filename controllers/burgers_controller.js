@@ -7,7 +7,9 @@ module.exports = function(app) {
   // API route to display all burgers.
   app.get('/', function(req, res) {
     db.Burger.findAll({}).then(function(dbBurger) {
-      res.json(dbBurger);
+      //res.json(dbBurger);
+      console.log(dbBurger);
+      res.render('index', {burgers: dbBurger}); // pass object to handlebars
     });
   });
 
@@ -16,7 +18,8 @@ module.exports = function(app) {
     db.Burger.create({
       burger_name: req.body.burger_name
     }).then(function(dbBurger) {
-      res.json(dbBurger);
+      //res.json(dbBurger);
+      res.redirect('index', {burgers: dbBurger});
     });
   });
 
@@ -31,7 +34,8 @@ module.exports = function(app) {
           id: req.params.id
         }
       }).then(function(dbBurger) {
-        res.json(dbBurger);
+        //res.json(dbBurger);
+        res.redirect('index', {burgers: dbBurger});
       });
     });
 
@@ -42,7 +46,8 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(dbBurger) {
-      res.json(dbBurger);
+      //res.json(dbBurger);
+      res.redirect('index', {burgers: dbBurger});
     });
   });
 };

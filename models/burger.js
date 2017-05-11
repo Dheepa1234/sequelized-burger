@@ -27,14 +27,16 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: false
     },
+    // Thank you - https://stackoverflow.com/questions/29652538/sequelize-js-timestamp-not-datetime
+
     created_at: {
       type: 'TIMESTAMP',
-      defaultValue: DataTypes.NOW(),
+      defaultValue: DataTypes.DATETIME,
       allowNull: false
     },
     updated_at: {
       type: 'TIMESTAMP',
-      defaultValue: DataTypes.NOW(),
+      defaultValue: DataTypes.NOW,
       allowNull: false
     }
   }, {
