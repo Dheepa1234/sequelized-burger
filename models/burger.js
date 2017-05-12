@@ -13,14 +13,7 @@ module.exports = function(sequelize, DataTypes) {
   var Burger = sequelize.define('Burger', {
     burger_name: {
       type: Sequelize.STRING,
-      allowNull: false/*, // This DB column may not be equal to null.
-      validate: {
-        len: [1], // The string must have a length value of 1 or more.
-        is: {
-          args: /^[a-z]+$/i, // letters only
-          msg: 'Please enter letters only.' // Error message to the user.
-        }
-      }*/
+      allowNull: false // This DB column may not be equal to null.
     },
     devoured: {
       type: Sequelize.BOOLEAN,
