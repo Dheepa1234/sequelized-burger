@@ -20,6 +20,23 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: false
     }
+  },
+    {
+      // Customer has Burgers - Customer Association
+      classMethods: {
+        associate: function(models) {
+          // A Customer (foreignKey) is required
+          Burger.belongsTo(models.Customer, {
+            foreignKey: {
+              allowNull: false
+            }
+          });
+        }
+      }
+  },{
+    timestamps: true,
+    createdAt: DataTypes.DATETIME,
+    updatedAt: DataTypes.NOW
   });
   return Burger;
 
