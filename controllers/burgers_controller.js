@@ -14,7 +14,7 @@ module.exports = function(app) {
   app.post('/', function(req, res) {
     db.Burger.create({
       burger_name: req.body.burger
-    }).then(function(dbBurger) {
+    }).then(function() {
       res.redirect('/');
     });
   });
@@ -28,7 +28,7 @@ module.exports = function(app) {
         where: {
           id: req.params.id
         }
-      }).then(function(dbBurger) {
+      }).then(function() {
         res.redirect('/');
       });
     });
@@ -39,7 +39,7 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then(function(dbBurger) {
+    }).then(function() {
       res.redirect('/');
     });
   });
