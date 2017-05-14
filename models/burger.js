@@ -8,7 +8,7 @@ var Sequelize = require("sequelize");
 // sequelize (lowercase) references the connection to the DB.
 var sequelize = require("../config/connection");
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize) {
 
   var Burger = sequelize.define('Burger', {
     burger_name: {
